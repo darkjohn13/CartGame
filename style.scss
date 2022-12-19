@@ -87,6 +87,9 @@ body{
     &__diff-changer:hover{
         border: 2px solid blue;
     }
+    &__diff-changer_current{
+        background-color: rgb(251, 215, 220);
+    }
     &__form{
         display: flex;
         flex-direction: column;

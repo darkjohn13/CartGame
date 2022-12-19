@@ -19,3 +19,4 @@ window.application = {
     },
   }
   const app = document.querySelector('.app');
+  window.application.gameDifficulty = '1';
