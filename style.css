@@ -79,6 +79,9 @@ body {
 .start-screen__diff-changer:hover {
   border: 2px solid blue;
 }
+.start-screen__diff-changer_current {
+  background-color: rgb(251, 215, 220);
+}
 .start-screen__form {
   display: flex;
   flex-direction: column;
