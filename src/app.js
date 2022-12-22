@@ -1,6 +1,7 @@
 window.application = {
     blocks: {},
     screens: {},
+    timer: '',
 
     renderScreen: function (screenName) {
         if (window.application.screens[screenName]) {

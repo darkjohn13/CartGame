@@ -67,7 +67,7 @@ const startScreenTemplate = {
                 },
                 {
                     tag: 'button',
-                    cls: 'start-screen__button',
+                    cls: ['start-screen__button', 'button'],
                     content: 'Старт',
                 },
             ],

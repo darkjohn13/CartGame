@@ -1,98 +1,131 @@
 @font-face {
-    font-family: 'StratosSkyeng';
-    src: 
-    url('./fonts/stratosskyengweb-regular.woff2') format('woff2'),
+  font-family: StratosSkyeng;
+  src:
+    url("./fonts/stratosskyengweb-regular.woff2") format("woff2"),
     url(./fonts/stratosskyengweb-regular.woff) format(woff);
+  font-style: normal;
+  font-weight: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #004980;
+  flex-direction: column;
+}
+
+.start-screen {
+  width: 480px;
+  height: 459px;
+  background: #c2f5ff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__diff-holder {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 67px;
+  }
+
+  &__title {
+    margin-top: 52px;
+    margin-bottom: 48px;
+    width: 208px;
+    height: 96px;
+    font-family: StratosSkyeng;
     font-style: normal;
-    font-weight: normal;
-}
-*{
-    margin: 0;
-    padding: 0;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    font-feature-settings: "pnum" on, "lnum" on;
+    color: #004980;
+  }
 
-}
-
-body{
-    background: #004980;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.start-screen{
-    display: flex;
-    width: 480px;
-    height: 459px;
-    background: #C2F5FF;
+  &__diff-changer {
+    width: 98px;
+    height: 98px;
+    background: #fff;
     border-radius: 12px;
+    border: none;
+    font-family: StratosSkyeng;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    color: #0080c1;
+  }
+
+  &__diff-changer:hover {
+    border: 2px solid blue;
+  }
+
+  &__diff-changer_current {
+    background-color: rgb(251 215 220);
+  }
+
+  &__form {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+}
 
-    &__diff-holder{
-        display: flex;
-        gap: 24px;
-        margin-bottom: 67px;
-    }
-    &__title{
-        margin-top: 52px;
-        margin-bottom: 48px;
-        width: 208px;
-        height: 96px;
+.game-sub-block {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
 
-        font-family: 'StratosSkyeng';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 40px;
-        line-height: 48px;
+  &__timer {
+    font-family: StratosSkyeng;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    color: #fff;
+  }
 
-        text-align: center;
-        font-feature-settings: 'pnum' on, 'lnum' on;
+  &__time-box {
+    font-family: StratosSkyeng;
+    font-style: normal;
+    font-weight: 400;
+    color: #fff;
+    display: flex;
+    padding-left: 40px;
+    justify-content: space-around;
+    gap: 38px;
+  }
+}
 
-        color: #004980;
-    }
-    &__button{
-        width: 246px;
-        height: 50px;
-        background: #7AC100;
-        border-radius: 12px;
-        border: none;
-        color: white;
-        font-family: 'StratosSkyeng';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 32px;
-    }
-    &__button:hover{
-        border: 2px solid blue;
-    }
+.button {
+  width: 246px;
+  height: 50px;
+  background: #7ac100;
+  border-radius: 12px;
+  border: none;
+  color: white;
+  font-family: StratosSkyeng;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+}
 
-    &__diff-changer{
-        width: 98px;
-        height: 98px;
-        background: #FFFFFF;
-        border-radius: 12px;
-        border: none;
-                
-        font-family: 'StratosSkyeng';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 64px;
-        line-height: 72px;
-
-        color: #0080C1;
-    }
-    &__diff-changer:hover{
-        border: 2px solid blue;
-    }
-    &__diff-changer_current{
-        background-color: rgb(251, 215, 220);
-    }
-    &__form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+.button:hover {
+  border: 2px solid blue;
 }

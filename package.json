@@ -8,9 +8,12 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "format": "prettier --write ./lol.js",
+        "format": "prettier --write .",
         "lint:js": "eslint ./src/**/*.js",
-        "lint:css": "stylelint './*.css'"
+        "lint:scss": "stylelint *.scss",
+        "lint": "npm run lint:js && npm run lint:css",
+        "prepare": "husky install",
+        "testi": "stylelint --fix ."
     },
     "repository": {
         "type": "git",
@@ -26,9 +29,18 @@
         "eslint": "^8.30.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.2.1",
+        "husky": "^8.0.2",
         "prettier": "^2.8.1",
         "stylelint-config-prettier": "^9.0.4",
+        "stylelint-config-prettier-scss": "^0.0.1",
         "stylelint-config-standard": "^29.0.0",
-        "stylelint-prettier": "^2.0.0"
+        "stylelint-config-standard-scss": "^6.1.0",
+        "stylelint-prettier": "^2.0.0",
+        "stylelint-scss": "^4.3.0"
+    },
+    "dependencies": {
+        "postcss": "^8.4.20",
+        "postcss-scss": "^4.0.6",
+        "stylelint": "^14.16.0"
     }
 }
