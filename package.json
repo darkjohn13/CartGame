@@ -11,6 +11,9 @@
         "format": "prettier --write .",
         "testi": "stylelint --fix .",
         "build-dev": "webpack --mode development",
+        "lint:scss": "stylelint ./src/css/*.scss",
+        "lint:js": "eslint ./src/*.js",
+        "lint": "npm run lint:js && npm run lint:scss",
         "build-prod": "webpack --node-env=production",
         "clear": "rd /s /q dist",
         "serve": "webpack serve --open --mode development"
@@ -45,6 +48,8 @@
         "stylelint-config-standard-scss": "^6.1.0",
         "stylelint-prettier": "^2.0.0",
         "stylelint-scss": "^4.3.0",
+        "ts-loader": "^9.4.3",
+        "typescript": "^5.0.4",
         "webpack": "^5.75.0",
         "webpack-cli": "^5.0.1",
         "webpack-dev-server": "^4.15.0"
