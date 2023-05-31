@@ -1,23 +1,24 @@
-window.application = {
+export const application = {
     blocks: {},
     screens: {},
     timer: '',
+    app: document.querySelector('.app'),
+    gameDifficulty: '1',
+    iter: 0,
 
     renderScreen: function (screenName) {
-        if (window.application.screens[screenName]) {
-            app.innerHTML = '';
-            window.application.screens[screenName]();
+        if (this.screens[screenName]) {
+            this.app.innerHTML = '';
+            this.screens[screenName]();
         } else {
             console.warn(`Screen "${screenName}" does not exist`);
         }
     },
     renderBlock: function (blockName, container) {
-        if (window.application.blocks[blockName]) {
-            window.application.blocks[blockName](container);
+        if (this.blocks[blockName]) {
+            this.blocks[blockName](container);
         } else {
             console.warn(`Block "${blockName}" does not exist`);
         }
     },
 };
-const app = document.querySelector('.app');
-window.application.gameDifficulty = '1';
