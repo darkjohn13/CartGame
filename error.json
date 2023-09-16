@@ -1,0 +1,5 @@
+{
+    "lint:scss": "stylelint *.scss",
+    "eslintIgnore": "dist/bundle.js",
+    "lint:js": "eslint ./src/**/*.js"
+}

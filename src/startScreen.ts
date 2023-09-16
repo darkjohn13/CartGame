@@ -2,16 +2,19 @@ import './css/style.css';
 import { application } from './app';
 import { templateEngine } from './lib/template-engine';
 import './gameScreen';
+import { node } from 'webpack';
 
-const app = application.app;
+const app: HTMLElement = application.app;
 
 function renderStartBlock() {
     app.appendChild(templateEngine(startScreenTemplate));
 
-    const diffButtons = document.querySelector('.start-screen__diff-holder');
-    diffButtons.addEventListener('click', (event) => {
+    const diffButtons: HTMLElement = document.querySelector(
+        '.start-screen__diff-holder'
+    );
+    diffButtons?.addEventListener('click', (event: any) => {
         event.preventDefault();
-        const target = event.target;
+        const target: HTMLElement = event.target;
 
         if (target.tagName === 'BUTTON') {
             application.gameDifficulty = target.textContent;
@@ -22,8 +25,10 @@ function renderStartBlock() {
         }
     });
 
-    const startButton = document.querySelector('.start-screen__button');
-    startButton.addEventListener('click', (event) => {
+    const startButton: HTMLElement = document.querySelector(
+        '.start-screen__button'
+    );
+    startButton?.addEventListener('click', (event) => {
         event.preventDefault();
         application.renderScreen('gameScreen');
     });

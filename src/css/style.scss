@@ -151,7 +151,7 @@
 }
 
 .card {
-    position: relative;
+    position: static;
     transition: 0.2s all;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     transform: scale(1);
@@ -217,4 +217,48 @@
         visibility: hidden;
         opacity: 0;
     }
+}
+
+.endgame-mainblock {
+    width: 480px;
+    height: 459px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-bottom: 48px;
+    padding-top: 9px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #c2f5ff;
+    border-radius: 12px;
+}
+
+.endgame-mainblock__title {
+    font-family: StratosSkyeng;
+    font-size: 40px;
+    font-weight: 400;
+    color: #004980;
+    margin-top: 9px;
+    margin-bottom: 28px;
+}
+
+.endgame-mainblock__timetitle {
+    font-family: StratosSkyeng;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.endgame-mainblock__time {
+    font-family: StratosSkyeng;
+    font-size: 64px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.endgame-mainblock__image {
+    width: 96px;
+    height: 96px;
+    background-image: url('../../static/WinImg.jpg');
 }

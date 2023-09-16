@@ -6,17 +6,19 @@
     "directories": {
         "lib": "lib"
     },
+    "eslintIgnore": "dist/bundle.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write .",
         "testi": "stylelint --fix .",
         "build-dev": "webpack --mode development",
         "lint:scss": "stylelint ./src/css/*.scss",
-        "lint:js": "eslint ./src/*.js",
-        "lint": "npm run lint:js && npm run lint:scss",
+        "lint:js": "eslint ./src/lib/*.js",
+        "lint:ts": "tsc ––noEmit",
         "build-prod": "webpack --node-env=production",
         "clear": "rd /s /q dist",
-        "serve": "webpack serve --open --mode development"
+        "serve": "webpack serve --open --mode development",
+        "lint": "npm run lint:js && npm run lint:scss"
     },
     "repository": {
         "type": "git",

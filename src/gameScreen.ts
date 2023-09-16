@@ -1,6 +1,8 @@
 import './css/style.css';
 import { application } from './app';
 import { templateEngine } from './lib/template-engine';
+import './endGameScreen';
+import { node } from 'webpack';
 
 const app = application.app;
 
@@ -67,6 +69,8 @@ function stopWatchHolder() {
 
         container.textContent =
             (min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec);
+
+        application.timer = container.textContent;
     }, 1000);
 }
 
@@ -78,14 +82,14 @@ function renderGameMainBlock() {
     const numberOfCards = application.gameDifficulty * 6;
 
     function getRandomCard() {
-        const cardNumber = Math.floor(1 + Math.random() * 36);
+        const cardNumber: number = Math.floor(1 + Math.random() * 36);
         return cardNumber;
     }
 
-    const arrCard = [];
+    const arrCard: number[] = [];
 
     for (let i = 0; i < numberOfCards / 2; i++) {
-        let cardNumber = getRandomCard();
+        let cardNumber: number = getRandomCard();
         if (cardNumber !== undefined) {
             if (arrCard.includes(cardNumber)) {
                 i--;
@@ -100,9 +104,9 @@ function renderGameMainBlock() {
     console.log(arrCard);
 
     for (let i = 0; i < numberOfCards; i++) {
-        const card = document.createElement('div');
+        const card: HTMLElement = document.createElement('div');
         card.classList.add('card');
-        card.id = arrCard[i];
+        card.id = String(arrCard[i]);
 
         const back = document.createElement('img');
         back.classList.add('back-face');
@@ -116,13 +120,13 @@ function renderGameMainBlock() {
         card.appendChild(back);
     }
 
-    const flipCard = (card) => {
+    const flipCard = (card: Element) => {
         if (!card.classList.contains('flip')) {
             card.classList.add('flip');
             application.iter++;
         }
     };
-    const flipCardBack = (card) => {
+    const flipCardBack = (card: Element) => {
         setTimeout(() => card.classList.remove('flip'), 300);
         application.iter = 0;
     };
@@ -138,20 +142,21 @@ function renderGameMainBlock() {
         }, 2000);
     });
 
-    const flipCardClick = (event) => {
+    const flipCardClick = (event: any) => {
         const target = event.target.parentElement;
         flipCard(target);
-        setTimeout(500);
+        setTimeout(() => {}, 500);
     };
     const compareCards = () => {
-        const flippedCards = document.querySelectorAll('.flip');
+        const flippedCards: NodeListOf<Element> =
+            document.querySelectorAll('.flip');
         if (
             flippedCards.length === 2 &&
             flippedCards[0].id === flippedCards[1].id
         ) {
             setTimeout(() => {
-                flippedCards[0].firstChild.classList.add('card-i');
-                flippedCards[1].firstChild.classList.add('card-i');
+                flippedCards[0].firstElementChild.classList.add('card-i');
+                flippedCards[1].firstElementChild.classList.add('card-i');
             }, 1000);
             setTimeout(() => {
                 flippedCards[0].parentElement.removeChild(flippedCards[0]);
@@ -168,7 +173,8 @@ function renderGameMainBlock() {
         }
         setTimeout(() => {
             let game = document.querySelector('.game');
-            if (game.children.length === 0) alert('вы выиграли');
+            if (game.children.length === 0)
+                application.renderScreen('endGameMainScreen');
             console.log(game.children.length);
         }, 2100);
     };

@@ -1,4 +1,4 @@
-export const application = {
+export const application: any = {
     blocks: {},
     screens: {},
     timer: '',
@@ -6,7 +6,7 @@ export const application = {
     gameDifficulty: '1',
     iter: 0,
 
-    renderScreen: function (screenName) {
+    renderScreen: function (screenName: string) {
         if (this.screens[screenName]) {
             this.app.innerHTML = '';
             this.screens[screenName]();
@@ -14,7 +14,7 @@ export const application = {
             console.warn(`Screen "${screenName}" does not exist`);
         }
     },
-    renderBlock: function (blockName, container) {
+    renderBlock: function (blockName: string, container: HTMLElement) {
         if (this.blocks[blockName]) {
             this.blocks[blockName](container);
         } else {

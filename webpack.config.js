@@ -13,7 +13,7 @@ const devtool = devMode ? 'source-map' : undefined;
 module.exports = {
     target,
     devtool,
-    entry: path.resolve(__dirname, 'src', 'startScreen.js'),
+    entry: path.resolve(__dirname, 'src', 'startScreen.ts'),
     mode,
     plugins: [
         new MiniCssExtractPlugin({
@@ -28,6 +28,11 @@ module.exports = {
     ],
     module: {
         rules: [
+            {
+                test: /\.ts$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.css$/,
                 exclude: /prime(vue|icons).+\.css$/,
@@ -52,6 +57,9 @@ module.exports = {
                 type: 'asset/resource',
             },
         ],
+    },
+    resolve: {
+        extensions: ['.ts', '.js'],
     },
     optimization: {
         minimizer: ['...', new CssMinimizerPlugin()],
