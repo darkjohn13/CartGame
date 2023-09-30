@@ -237,4 +237,14 @@
   width: 96px;
   height: 96px;
   background-image: url("../../static/WinImg.png");
+}
+
+.pageCover {
+  position: fixed;
+  z-index: 10;
+  background-color: transparent;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
 }/*# sourceMappingURL=style.css.map */

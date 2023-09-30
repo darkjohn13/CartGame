@@ -12,9 +12,9 @@ function renderStartBlock() {
     const diffButtons: HTMLElement = document.querySelector(
         '.start-screen__diff-holder'
     );
-    diffButtons?.addEventListener('click', (event: any) => {
+    diffButtons?.addEventListener('click', (event: Event) => {
         event.preventDefault();
-        const target: HTMLElement = event.target;
+        const target = event.target as HTMLElement;
 
         if (target.tagName === 'BUTTON') {
             application.gameDifficulty = target.textContent;

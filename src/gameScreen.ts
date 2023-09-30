@@ -121,7 +121,10 @@ function renderGameMainBlock() {
     }
 
     const flipCard = (card: Element) => {
-        if (!card.classList.contains('flip')) {
+        if (
+            !card.classList.contains('flip') &&
+            card.classList.contains('card')
+        ) {
             card.classList.add('flip');
             application.iter++;
         }
@@ -132,6 +135,7 @@ function renderGameMainBlock() {
     };
 
     const cards = document.querySelectorAll('.card');
+
     cards.forEach((card) => {
         setTimeout(() => {
             flipCard(card);
@@ -142,17 +146,30 @@ function renderGameMainBlock() {
         }, 2000);
     });
 
-    const flipCardClick = (event: any) => {
-        const target = event.target.parentElement;
+    const flipCardClick = (event: Event) => {
+        let target = event.target as HTMLElement;
+        target = target.parentElement;
         flipCard(target);
-        setTimeout(() => {}, 500);
     };
     const compareCards = () => {
         const flippedCards: NodeListOf<Element> =
             document.querySelectorAll('.flip');
+        console.log(flippedCards);
+        if (flippedCards.length === 2) {
+            const div = document.createElement('div');
+            div.classList.add('pageCover');
+            document.querySelector('.game').appendChild(div);
+            setTimeout(() => {
+                document
+                    .querySelector('.game')
+                    .removeChild(document.querySelector('.pageCover'));
+            }, 2000);
+        }
         if (
             flippedCards.length === 2 &&
-            flippedCards[0].id === flippedCards[1].id
+            flippedCards[0].id === flippedCards[1].id &&
+            flippedCards[0] &&
+            flippedCards[1]
         ) {
             setTimeout(() => {
                 flippedCards[0].firstElementChild.classList.add('card-i');
@@ -171,6 +188,7 @@ function renderGameMainBlock() {
                 }, 1000);
             }
         }
+
         setTimeout(() => {
             let game = document.querySelector('.game');
             if (game.children.length === 0)
@@ -178,7 +196,6 @@ function renderGameMainBlock() {
             console.log(game.children.length);
         }, 2100);
     };
-
     cards.forEach((card) => {
         card.addEventListener('click', flipCardClick);
         card.addEventListener('click', compareCards);
