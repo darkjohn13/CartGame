@@ -50,7 +50,7 @@ function renderGameSubBlock() {
     const againButton = document.querySelector('.game-sub-block__button');
     againButton.addEventListener('click', (event) => {
         event.preventDefault();
-        application.gameDifficulty = '1';
+        application.gameDifficulty = 1;
         application.renderScreen('startScreen');
     });
 }
@@ -71,7 +71,7 @@ function stopWatchHolder() {
             (min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec);
 
         application.timer = container.textContent;
-    }, 1000);
+    }, 1000).toString();
 }
 
 function renderGameMainBlock() {

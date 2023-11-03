@@ -40,14 +40,14 @@ function endGameMainBlock() {
     const againButton = document.querySelector('.button');
     againButton.addEventListener('click', (event) => {
         event.preventDefault();
-        application.gameDifficulty = '1';
+        application.gameDifficulty = 1;
         application.renderScreen('startScreen');
     });
 }
 application.blocks['endGameMainBlock'] = endGameMainBlock;
 
 function renderEndGameScreen() {
-    application.renderBlock('endGameMainBlock', application);
+    application.renderBlock('endGameMainBlock', app);
 }
 application.screens['endGameMainScreen'] = renderEndGameScreen;
 

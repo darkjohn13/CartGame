@@ -17,7 +17,7 @@ function renderStartBlock() {
         const target = event.target as HTMLElement;
 
         if (target.tagName === 'BUTTON') {
-            application.gameDifficulty = target.textContent;
+            application.gameDifficulty = Number(target.textContent);
             Array.from(diffButtons.children).forEach((child) =>
                 child.classList.remove('start-screen__diff-changer_current')
             );
