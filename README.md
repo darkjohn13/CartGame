@@ -1,2 +1,2 @@
 # CartGame
-Card game for de brains of ur family. 
+Card game for de brain development of ur family. 
