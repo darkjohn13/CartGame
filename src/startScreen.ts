@@ -1,13 +1,23 @@
+import './css/style.css';
+import { application } from './app';
+import { templateEngine } from './lib/template-engine';
+import './gameScreen';
+import { node } from 'webpack';
+
+const app: HTMLElement = application.app;
+
 function renderStartBlock() {
     app.appendChild(templateEngine(startScreenTemplate));
 
-    const diffButtons = document.querySelector('.start-screen__diff-holder');
-    diffButtons.addEventListener('click', (event) => {
+    const diffButtons: HTMLElement = document.querySelector(
+        '.start-screen__diff-holder'
+    );
+    diffButtons?.addEventListener('click', (event: Event) => {
         event.preventDefault();
-        const target = event.target;
+        const target = event.target as HTMLElement;
 
         if (target.tagName === 'BUTTON') {
-            window.application.gameDifficulty = target.textContent;
+            application.gameDifficulty = Number(target.textContent);
             Array.from(diffButtons.children).forEach((child) =>
                 child.classList.remove('start-screen__diff-changer_current')
             );
@@ -15,18 +25,20 @@ function renderStartBlock() {
         }
     });
 
-    const startButton = document.querySelector('.start-screen__button');
-    startButton.addEventListener('click', (event) => {
+    const startButton: HTMLElement = document.querySelector(
+        '.start-screen__button'
+    );
+    startButton?.addEventListener('click', (event) => {
         event.preventDefault();
-        window.application.renderScreen('gameScreen');
+        application.renderScreen('gameScreen');
     });
 }
-window.application.blocks['startBlock'] = renderStartBlock;
+application.blocks['startBlock'] = renderStartBlock;
 
 function renderStartScreen() {
-    window.application.renderBlock('startBlock', app);
+    application.renderBlock('startBlock', app);
 }
-window.application.screens['startScreen'] = renderStartScreen;
+application.screens['startScreen'] = renderStartScreen;
 
 const startScreenTemplate = {
     tag: 'div',
@@ -75,4 +87,4 @@ const startScreenTemplate = {
     ],
 };
 
-window.application.renderScreen('startScreen');
+application.renderScreen('startScreen');
